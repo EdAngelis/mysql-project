@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "start": "node src/server.ts",
-    "build": "tsc && node dist/server.js"
+    "build": "tsc && node dist/server.js",
+    "db:create": "sequelize db:create",
+    "db:migrate": "sequelize db:migrate",
+    "db:seed": "sequelize db:seed:all",
+    "db:reset": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all"
   },
   "author": "Ed Angelis",
   "license": "ISC",
@@ -26,6 +30,7 @@
     "@types/sequelize": "^6.12.0",
     "chai": "^5.2.0",
     "nodemon": "^3.1.7",
+    "sequelize-cli": "^6.6.5",
     "ts-node-dev": "^2.0.0"
   }
 }
