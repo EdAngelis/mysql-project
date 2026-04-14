@@ -2,31 +2,28 @@ import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/database";
 
 class Category extends Model {
-  declare category_id: number;
+  declare id: number;
   declare name: string;
-  declare last_update: Date;
+  declare createdAt: Date;
+  declare updatedAt: Date;
 }
 
 Category.init(
   {
-    category_id: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
     name: {
-      type: DataTypes.STRING(25),
-      allowNull: false,
-    },
-    last_update: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
   },
   {
     sequelize,
     tableName: "category",
-    timestamps: false,
+    timestamps: true,
   }
 );
 
