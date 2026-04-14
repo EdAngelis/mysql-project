@@ -1,0 +1,19 @@
+import express from "express";
+import morgan from "morgan";
+import cors from "cors";
+import routes from "./routes/index";
+
+const app = express();
+
+app.use(cors());
+app.use(morgan("dev"));
+app.use(express.json());
+app.use(routes);
+
+app.get("/", async (req, res) => {
+  res.status(200).json({
+    message: "Olá Galerinha que assiste meu Canal",
+  });
+});
+
+export default app;
